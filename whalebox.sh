@@ -38,5 +38,10 @@ function get_root_volumes {
     fi
 }
 
+if [ ! "$(docker ps)" ] then 
+    echo "Please start docker"
+    exit 1
+fi
+
 docker run --rm z0beat/whalebox sh > /tmp/whaleboxes.alias
 source /tmp/whaleboxes.alias
